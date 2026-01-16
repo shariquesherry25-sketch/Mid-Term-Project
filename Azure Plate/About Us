@@ -1,1 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Azure Plate</title>
 
+<!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    body {scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+            background-image: url(assets/body-bg.jpg);
+        }
+         #preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: hidePreloader 0.8s ease forwards;
+  animation-delay: 1.5s; 
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #ff6f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hidePreloader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ===== HEADER AREA ===== */
+    .header-area {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.header-area .navbar {
+    padding: 15px 30px;
+  color: #ff6f00;
+}
+
+.header-area .navbar-brand img {
+    max-height: 50px;
+}
+
+.header-area .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 18px;
+    transition: 0.3s;
+}
+
+.header-area .nav-link:hover,
+.header-area .nav-link.active {
+    color: #ff6f00;
+}
+
+.header-area .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6f00;
+    transition: 0.3s;
+    margin: auto;
+}
+
+.header-area .nav-link:hover::after,
+.header-area .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ===== RESPONSIVE AREA ===== */
+/* ===== MOBILE MENU ===== */
+@media (max-width: 480px) {
+    .header-area .nav-link {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+
+    .hero-header {
+        padding: 80px 15px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 28px;
+    }
+
+    .about_section .detail-box p {
+        font-size: 14px;
+    }
+
+    .recipe_section .detail-box h4 {
+        font-size: 18px;
+    }
+
+    .btn-box .btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    .app_section .detail-box h2 {
+        font-size: 28px;
+    }
+
+    .app_section {
+        padding: 100px 15px 80px 15px;
+    }
+}
+
+/* ===== LARGE MENU ===== */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .hero-header {
+        padding: 120px 50px;
+    }
+
+    .about_section {
+        padding: 70px 50px;
+    }
+
+    .recipe_section .row .col-md-4:first-child,
+    .recipe_section .row .col-md-4:last-child {
+        margin-top: -30px;
+    }
+}
+
+/* ===== EXTRA LARGE MENU ===== */
+@media (min-width: 1200px) {
+    .hero-header {
+        padding: 150px 100px;
+    }
+
+    .about_section {
+        padding: 100px 100px;
+    }
+
+    .recipe_section .row .col-md-4:first-child,
+    .recipe_section .row .col-md-4:last-child {
+        margin-top: -40px;
+    }
+}
+
+.btn-primary {
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  background-color:  #FFE537;
+  color: #000;
+}
+
+.btn-primary:hover {
+  color: #000;
+   background: none;
+     border: 2px solid #FFE537;
+}
+
+/* ===== HERO SECTION ===== */
+        .hero-header {
+            background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+            url("./assets/banner.png") center/cover;
+        }
+
+
+/* ===== ABOUT SECTION ===== */
+.about_section {
+    padding: 80px 0;
+}
+
+.about_section .heading_container h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #ff6f00;
+}
+
+.about_section .box {
+    padding: 40px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.about_section .box:hover {
+    transform: translateY(-5px);
+}
+
+.about_section .img-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about_section .img-box img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.about_section .detail-box {
+    text-align: center;
+}
+
+.about_section .detail-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ff6f00;
+}
+
+/* ===== RECIPE SECTION ===== */
+.recipe_section {
+    padding-top: 60px;
+}
+
+.heading_container h2 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.container .heading_container h2 {
+   color: black;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.recipe_section .box {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.recipe_section .box:hover {
+    transform: translateY(-8px);
+}
+
+.recipe_section .img-box {
+    width: 100%;
+}
+
+.recipe_section .img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.recipe_section .detail-box {
+    padding: 20px;
+    text-align: center;
+}
+
+.recipe_section .detail-box h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ff6f00;
+}
+
+.recipe_section .row .col-md-4:first-child,
+.recipe_section .row .col-md-4:last-child {
+    margin-top: -40px;
+}
+
+/* ===== BUTTON SECTION ===== */
+.btn-box {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-box .btn {
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    background-color: #FFE537;
+    color: #000;
+    
+}
+
+.btn-box .btn-primary:hover {
+    background: none;
+    border: 2px solid #FFE537;
+}
+
+.btn-box .btn-primary:hover{
+  color: #000;
+}
+
+.app_btn_box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.app_btn_box a {
+    display: inline-block;
+}
+
+.app_btn_box img {
+    width: 150px;
+    transition: 0.3s;
+}
+
+.app_btn_box img:hover {
+    transform: scale(1.05);
+}
+
+.download_btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: #FFE537;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download_btn:hover {
+    background: none;
+    color: black;
+     border: 2px solid #FFE537;
+}
+
+/* ===== APP SECTION ===== */
+.app_section {
+    padding: 80px 0;
+}
+
+.app_section .detail-box h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.app_section .detail-box h2 span {
+   color: #ffe537; 
+    font-weight: 600;
+}
+
+.app_section .detail-box p {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 25px;
+    max-width: 520px;
+}
+
+.app_section{
+  background-image: url(./assets/about-1.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 225px 0 175px 0;
+    color: #ffffff;
+}
+
+.app_section .img-box {
+    text-align: center;
+}
+
+.app_section .img-box img {
+    max-width: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===== MOBILE ANIMATION ===== */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.vip-footer {
+    background: linear-gradient(180deg, #0f172b, #020617);
+}
+
+.footer-title {
+    color: #fea116;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #fea116;
+    padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #fea116;
+    color: #000;
+}
+
+.vip-input {
+    border-radius: 50px;
+    padding: 12px 20px;
+    padding-right: 110px;
+}
+
+.vip-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.footer-menu a {
+    color: #ccc;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #fea116;
+}
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+        }
+
+
+</style>
+</head>
+<body>
+     <!-- header section strats -->
+        <div id="preloader">
+  <div class="loader"></div>
+</div>
+
+    <section class="header-area">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/Microsoft_Azure_Logo.svg.png" alt="Delicious" height="40">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="booking.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary ms-3">Book Table</a>
+    </div>
+
+  </div>
+</nav>
+</section>
+
+    <!-- end header section -->
+
+    <!-- Hero -->
+<div class="container-fluid hero-header py-5 mb-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white fw-bold">About Us</h1>
+        <p class="text-light">Serving the freshest catch with authentic flavors</p>
+    </div>
+</div>
+<!-- about section -->
+
+  <section class="about_section layout_padding" id="about">
+    <div class="container">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <div class="heading_container heading_center">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <div class="box">
+          <div class="col-md-7 mx-auto">
+            <div class="img-box">
+              <img src="assets/about-img.jpg" class="box-img" alt="">
+            </div>
+          </div>
+          <div class="detail-box">
+            <p>
+              Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- recipe section -->
+
+  <section class="recipe_section layout_padding-top">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Best Popular Recipes
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="assets/r1.jpg" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Breakfast
+              </h4>
+</div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="assets/r2.jpg" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Lunch
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="assets/r3.jpg" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Dinner
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+       <a href="#about" class="btn btn-primary">ORDER NOW</a>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end recipe section -->
+
+  <!-- app section -->
+
+  <section class="app_section">
+    <div class="container">
+      <div class="col-md-9 mx-auto">
+        <div class="row">
+          <div class="col-md-7 col-lg-8">
+            <div class="detail-box">
+              <h2>
+                <span> Get the</span> <br>
+                Azure App
+              </h2>
+              <p>
+                long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The poin
+              </p>
+              <div class="app_btn_box">
+                <a href="" class="mr-1">
+                  <img src="assets/google_play.png" class="box-img" alt="">
+                </a>
+                <a href="">
+                  <img src="assets/app_store.png" class="box-img" alt="">
+                </a>
+              </div>
+              <a href="" class="download_btn">
+                Download Now
+              </a>
+            </div>
+          </div>
+          <div class="col-md-5 col-lg-4">
+            <div class="img-box">
+              <img src="assets/mobile.png" class="box-img" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- end app section -->
+
+  <!-- VIP Footer Start -->
+<div class="container-fluid vip-footer text-light pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <!-- Company -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Company</h4>
+                <a class="footer-link" href="#">About Us</a>
+                <a class="footer-link" href="#">Contact Us</a>
+                <a class="footer-link" href="#">Reservation</a>
+                <a class="footer-link" href="#">Privacy Policy</a>
+                <a class="footer-link" href="#">Terms & Conditions</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Contact</h4>
+                <p><i class="fa fa-map-marker-alt me-2 text-warning"></i>123 Street, New York</p>
+                <p><i class="fa fa-phone-alt me-2 text-warning"></i>+012 345 67890</p>
+                <p><i class="fa fa-envelope me-2 text-warning"></i>info@example.com</p>
+
+                <div class="d-flex gap-2 mt-3">
+                    <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Opening -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Opening</h4>
+                <p class="mb-1 fw-semibold">Monday - Saturday</p>
+                <p>09:00 AM - 09:00 PM</p>
+                <p class="mb-1 fw-semibold">Sunday</p>
+                <p>10:00 AM - 08:00 PM</p>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Subscribe for latest offers & updates</p>
+                <div class="position-relative">
+                    <input class="form-control vip-input" type="email" placeholder="Your email">
+                    <button class="btn btn-warning vip-btn">Sign Up</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container border-top border-secondary pt-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                © 2026 <span class="text-warning">Azure</span>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end footer-menu">
+                <a href="#">Home</a>
+                <a href="#">Cookies</a>
+                <a href="#">Help</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- VIP Footer End -->
+<!-- Back to top -->
+<a href="#" class="btn btn-warning back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+</body>
+</html>
