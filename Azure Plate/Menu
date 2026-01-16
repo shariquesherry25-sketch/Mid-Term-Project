@@ -1,1 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azure Plate</title>
 
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+body{scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;background-image: url(assets/body-bg.jpg);
+}
+  #preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: hidePreloader 0.8s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #ff6f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hidePreloader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ===== HEADER AREA ===== */
+ .header-area {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.header-area .navbar {
+    padding: 15px 30px;
+  color: #ff6f00;
+}
+
+.header-area .navbar-brand img {
+    max-height: 50px; 
+}
+
+.header-area .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 18px;
+    transition: 0.3s;
+}
+
+.header-area .nav-link:hover,
+.header-area .nav-link.active {
+    color: #ff6f00;
+}
+
+.header-area .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6f00;
+    transition: 0.3s;
+    margin: auto;
+}
+
+.header-area .nav-link:hover::after,
+.header-area .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ===== RESPONSIVE AREA ===== */
+/* ===== MOBILE MENU ===== */
+@media (max-width: 480px) {
+    .header-area .navbar-brand img {
+        max-height: 40px;
+    }
+    .header-area .nav-link {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .hero-header {
+        padding: 60px 15px;
+        background-size: cover;
+    }
+
+    .menu-header {
+        padding: 80px 15px 40px;
+    }
+    .menu-header h1 {
+        font-size: 28px;
+    }
+    .menu-header p {
+        font-size: 14px;
+    }
+
+    .category-title {
+        font-size: 24px;
+    }
+
+    .menu-card img {
+        height: 180px;
+    }
+    .menu-card .card-body h5 {
+        font-size: 18px;
+    }
+    .menu-card .card-body p {
+        font-size: 13px;
+    }
+    .menu-card .card-body strong {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .footer-title {
+        font-size: 16px;
+    }
+    .footer-link {
+        font-size: 14px;
+    }
+    .social-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .vip-input {
+        width: 100%;
+        padding-right: 20px;
+    }
+    .vip-btn {
+        top: 10px;
+        right: 10px;
+        padding: 6px 15px;
+    }
+}
+
+/* ===== SMALL MENU ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hero-header {
+        padding: 80px 20px;
+    }
+    .menu-header {
+        padding: 100px 20px 50px;
+    }
+    .menu-card img {
+        height: 200px;
+    }
+}
+
+/* ===== MEDIUM MENU ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-header {
+        padding: 100px 30px;
+    }
+    .menu-header {
+        padding: 120px 30px 60px;
+    }
+    .menu-card img {
+        height: 220px;
+    }
+}
+
+/* ===== LARGE MENU ===== */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .hero-header {
+        padding: 120px 50px;
+    }
+    .menu-header {
+        padding: 140px 50px 70px;
+    }
+    .menu-card img {
+        height: 220px;
+    }
+}
+
+/* ===== EXTRA LARGE MENU ===== */
+@media (min-width: 1201px) {
+    .hero-header {
+        padding: 150px 100px;
+    }
+    .menu-header {
+        padding: 160px 100px 80px;
+    }
+}
+
+
+.btn-primary {
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  background-color:  #FFE537;
+  color: #000;
+}
+
+.btn-primary:hover {
+  color: #000;
+   background: none;
+     border: 2px solid #FFE537;
+}
+
+/* ===== HERO SECTION ===== */
+        .hero-header {
+            background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+            url("./assets/banner.png") center/cover;
+        }
+
+/* ===== MENU HEADER ===== */
+.menu-header {
+    background: url('../assets/menu-header-bg.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 120px 20px 60px;
+    color: black;
+}
+
+.menu-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.menu-header p {
+    font-size: 18px;
+}
+
+.category-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ff6f00;
+}
+
+/* ===== MENU CARD SECTION ===== */
+.menu-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    background: #ffffff;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.menu-card .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-card .card-body h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.menu-card .card-body p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.menu-card .card-body strong {
+    font-size: 16px;
+    color: #ff6f00;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+.vip-footer {
+    background: linear-gradient(180deg, #0f172b, #020617);
+}
+
+.footer-title {
+    color: #fea116;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #fea116;
+    padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #fea116;
+    color: #000;
+}
+
+.vip-input {
+    border-radius: 50px;
+    padding: 12px 20px;
+    padding-right: 110px;
+}
+
+.vip-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.footer-menu a {
+    color: #ccc;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #fea116;
+}
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+        }
+</style>
+</head>
+
+<body>
+
+<!-- header section strats -->
+   <div id="preloader">
+  <div class="loader"></div>
+</div>
+
+   <section class="header-area">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/Microsoft_Azure_Logo.svg.png" alt="Delicious" height="40">
+    </a>
+
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="booking.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary ms-3">Book Table</a>
+    </div>
+
+  </div>
+</nav>
+</section>
+    <!-- end header section -->
+ <!-- Hero -->
+<div class="container-fluid hero-header py-5 mb-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white fw-bold">Food Menu</h1>
+        <p class="text-light">Fresh from the sea, straight to your plate</p>
+    </div>
+</div>
+<!-- ================= MENU HEADER ================= -->
+<section class="menu-header">
+  <div class="container">
+    <h1>Our Delicious Menu</h1>
+    <p>Starters • Main Course • Desserts • Drinks</p>
+  </div>
+</section>
+
+<!-- ================= STARTERS ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Starters</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fried-fish-with-potato-mash.jpg">
+        <div class="card-body">
+          <h5>Fish Fry</h5>
+          <p>Grilled-Fish with spices, lemon, flour, oil.</p>
+          <strong>770 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fish tikka.jpg">
+        <div class="card-body">
+          <h5>Fish Tikka</h5>
+          <p>Fish with yogurt, spices, lemon.</p>
+          <strong>924 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fish finger.jpg">
+        <div class="card-body">
+          <h5>Fish Finger</h5>
+          <p>Fish with breadcrumbs, egg, spices.</p>
+          <strong>1,387 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/prawn fry.jpg">
+        <div class="card-body">
+          <h5>Prawn Fry</h5>
+          <p>Prawns with spices, oil, garlic.</p>
+          <strong>2,004 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Crab Lollipop.jpg">
+        <div class="card-body">
+          <h5>Crab Lollipop</h5>
+          <p>Crab with spices, flour, oil.</p>
+          <strong>2,774 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Squid  Calamari Fry.jpg">
+        <div class="card-body">
+          <h5>Squid/Calamari Fry</h5>
+          <p>Squid, flour, spices, oil.</p>
+          <strong>3,699 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MAIN COURSE ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Main Course</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Fish Biryani.jpg">
+        <div class="card-body">
+          <h5>Fish Biryani</h5>
+          <p>Fish with rice, spices</p>
+          <strong>1,233 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Tom Yum  Thai Seafood Soup.jpg">
+        <div class="card-body">
+          <h5>Tom Yum/Thai Seafood Soup</h5>
+          <p>Seafood, lemongrass, chili</p>
+          <strong>2,466 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Grilled Squid.jpg">
+        <div class="card-body">
+          <h5>Black Bean Squid</h5>
+          <p>Squid, black bean, chili</p>
+          <strong>4,624 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DESSERTS ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Desserts</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307">
+        <div class="card-body">
+          <h5>Chocolate Brownie</h5>
+          <p>Warm brownie with ice cream</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/delicious-ice-cream-studio.jpg">
+        <div class="card-body">
+          <h5>Vanilla / Chocolate Ice Cream</h5>
+          <p>Milk, sugar, flavor</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Chocolate Mousse  Pudding.jpg">
+        <div class="card-body">
+          <h5>Chocolate Pudding</h5>
+          <p>Chocolate, cream, sugar</p>
+          <strong>1,079 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DRINKS ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Drinks</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e">
+        <div class="card-body">
+          <h5>Cold Coffee</h5>
+          <p>Chilled creamy coffee</p>
+          <strong>369 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Mango Juice.jpg">
+        <div class="card-body">
+          <h5>Mango Juice</h5>
+          <p>Mango, sugar, water</p>
+          <strong>616 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/download.jfif">
+        <div class="card-body">
+          <h5>Lemon mint cooler</h5>
+          <p>Lemon, mint, soda</p>
+          <strong>678 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/cold drinks">
+        <div class="card-body">
+          <h5>Coke / Sprite / Fanta</h5>
+          <p>Carbonated water, sugar, flavor</p>
+          <strong>308 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/tea.jfif">
+        <div class="card-body">
+          <h5>Hot Tea</h5>
+          <p>Tea, water, milk</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIP Footer Start -->
+<div class="container-fluid vip-footer text-light pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <!-- Company -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Company</h4>
+                <a class="footer-link" href="#">About Us</a>
+                <a class="footer-link" href="#">Contact Us</a>
+                <a class="footer-link" href="#">Reservation</a>
+                <a class="footer-link" href="#">Privacy Policy</a>
+                <a class="footer-link" href="#">Terms & Conditions</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Contact</h4>
+                <p><i class="fa fa-map-marker-alt me-2 text-warning"></i>123 Street, New York</p>
+                <p><i class="fa fa-phone-alt me-2 text-warning"></i>+012 345 67890</p>
+                <p><i class="fa fa-envelope me-2 text-warning"></i>info@example.com</p>
+
+               <div class="d-flex gap-2 mt-3">
+                    <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <!-- Opening -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Opening</h4>
+                <p class="mb-1 fw-semibold">Monday - Saturday</p>
+                <p>09:00 AM - 09:00 PM</p>
+                <p class="mb-1 fw-semibold">Sunday</p>
+                <p>10:00 AM - 08:00 PM</p>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Subscribe for latest offers & updates</p>
+                <div class="position-relative">
+                    <input class="form-control vip-input" type="email" placeholder="Your email">
+                    <button class="btn btn-warning vip-btn">Sign Up</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container border-top border-secondary pt-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                © 2026 <span class="text-warning">Azure</span>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end footer-menu">
+                <a href="#">Home</a>
+                <a href="#">Cookies</a>
+                <a href="#">Help</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- VIP Footer End -->
+<!-- Back to top -->
+<a href="#" class="btn btn-warning back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
