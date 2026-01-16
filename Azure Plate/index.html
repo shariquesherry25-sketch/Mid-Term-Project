@@ -1,1 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Azure Plate</title>
 
+<!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+         
+        body{scroll-behavior: smooth;font-family: "Poppins", sans-serif; background-image: url(./assets/body-bg.jpg); }
+
+         #preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: hidePreloader 0.8s ease forwards;
+  animation-delay: 1.5s; 
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #ff6f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hidePreloader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+ /* ===== HEADER AREA ===== */
+.header-area {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.header-area .navbar {
+    padding: 15px 30px;
+  color: #ff6f00;
+}
+
+/* ===== LOGO ===== */
+.header-area .navbar-brand img {
+    max-height: 50px;  
+}
+
+.header-area .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 18px;
+    transition: 0.3s;
+}
+
+.header-area .nav-link:hover,
+.header-area .nav-link.active {
+    color: #ff6f00;
+}
+
+.header-area .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6f00;
+    transition: 0.3s;
+    margin: auto;
+}
+
+.header-area .nav-link:hover::after,
+.header-area .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+ /* ===== RESPONSIVE AREA ===== */
+/* ===== MOBILE MENU ===== */
+@media (max-width: 480px) {
+    .header-area .navbar-brand img {
+        max-height: 40px;
+    }
+    .header-area .nav-link {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero p {
+        font-size: 14px;
+    }
+    .hero .btn-primary {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 28px;
+    }
+    .about_section .box {
+        padding: 20px;
+    }
+    .about_section .detail-box p {
+        font-size: 14px;
+    }
+
+    .menu-card .card-body h5 {
+        font-size: 16px;
+    }
+    .menu-card .card-body p {
+        font-size: 12px;
+    }
+
+    .news_section .heading_container h2 {
+        font-size: 28px;
+    }
+    .news_section .detail-box h4 {
+        font-size: 18px;
+    }
+    .news_section .detail-box p {
+        font-size: 14px;
+    }
+
+    .testimonial-item p {
+        font-size: 14px;
+    }
+
+    .btn-play {
+        width: 60px;
+        height: 60px;
+    }
+    .btn-play span {
+        left: 24px;
+        top: 18px;
+        border-width: 10px 0 10px 18px;
+    }
+
+    .reservation-box .form-control,
+    .reservation-box .form-select {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .footer-title {
+        font-size: 14px;
+    }
+    .footer-link {
+        font-size: 12px;
+    }
+    .social-btn {
+        width: 35px;
+        height: 35px;
+    }
+    .vip-input {
+        padding: 10px 15px;
+        padding-right: 90px;
+    }
+    .vip-btn {
+        top: 8px;
+        right: 8px;
+        padding: 6px 15px;
+    }
+}
+
+/* ===== SMALL MENU ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .hero .btn-primary {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 32px;
+    }
+    .about_section .detail-box p {
+        font-size: 15px;
+    }
+
+    .menu-card .card-body h5 {
+        font-size: 18px;
+    }
+    .menu-card .card-body p {
+        font-size: 13px;
+    }
+
+    .news_section .heading_container h2 {
+        font-size: 32px;
+    }
+    .news_section .detail-box h4 {
+        font-size: 20px;
+    }
+    .news_section .detail-box p {
+        font-size: 15px;
+    }
+}
+
+/* ===== MEDIUM MENU ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero h1 {
+        font-size: 48px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 36px;
+    }
+
+    .menu-card .card-body h5 {
+        font-size: 19px;
+    }
+
+    .news_section .heading_container h2 {
+        font-size: 36px;
+    }
+}
+
+/* ===== LARGE MENU ===== */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .hero h1 {
+        font-size: 56px;
+    }
+    .hero p {
+        font-size: 20px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 38px;
+    }
+
+    .menu-card .card-body h5 {
+        font-size: 20px;
+    }
+
+    .news_section .heading_container h2 {
+        font-size: 38px;
+    }
+}
+
+/* ===== EXTRA LARGE MENU ===== */
+@media (min-width: 1201px) {
+    .hero h1 {
+        font-size: 64px;
+    }
+    .hero p {
+        font-size: 22px;
+    }
+
+    .about_section .heading_container h2 {
+        font-size: 40px;
+    }
+
+    .menu-card .card-body h5 {
+        font-size: 22px;
+    }
+
+    .news_section .heading_container h2 {
+        font-size: 40px;
+    }
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.45)
+    ),
+    url('../assets/hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.hero{
+  background-image: url(assets/banner.png);
+}
+.hero h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero h1 strong {
+    color: #ff6f00; 
+}
+
+.hero p {
+    font-size: 20px;
+    color: #f1f1f1;
+    margin-bottom: 30px;
+}
+
+/* ===== BUTTON SECTION ===== */
+.btn-primary {
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  background:  #FFE537;
+  color: #000;
+}
+
+.hero .btn-primary {
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    background: #FFE537;
+    color: #000;
+    border: none;
+    transition: 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background: none;
+     border: 2px solid #FFE537;
+    
+}
+
+.btn .btn-primary {
+   padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    background: #FFE537;
+    color: #000;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+  color: #000;
+   background: none;
+     border: 2px solid #FFE537;
+}
+
+
+/* ===== ABOUT SECTION ===== */
+.about_section {
+    padding: 80px 0;
+}
+
+.about_section .heading_container h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: black;
+}
+
+.about_section .box {
+    padding: 40px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.about_section .box:hover {
+    transform: translateY(-5px);
+}
+
+.about_section .img-box {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about_section .img-box img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+.about_section .detail-box {
+    text-align: center;
+}
+
+.about_section .detail-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ff6f00;
+}
+
+/* ===== MENU HEADER ===== */
+.menu-header {
+    text-align: center;
+    padding: 120px 20px 60px;
+    color: #000000;
+}
+
+.menu-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.menu-header p {
+    font-size: 18px;
+}
+
+.category-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ff6f00;
+}
+
+/* ===== MENU CARD SECTION ===== */
+.menu-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    background: #ffffff;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.menu-card .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-card .card-body h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.menu-card .card-body p {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.menu-card .card-body strong {
+    font-size: 16px;
+    color: #ff6f00;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+/* ===== NEWS SECTION ===== */
+.news_section {
+    padding: 80px 0;
+}
+
+.news_section .heading_container h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #000;
+}
+
+.news_section .box {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    height: 100%;
+}
+
+.news_section .box:hover {
+    transform: translateY(-6px);
+}
+
+.news_section .img-box {
+    width: 100%;
+    overflow: hidden;
+}
+
+.news_section .img-box img {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.news_section .box:hover .img-box img {
+    transform: scale(1.08);
+}
+
+.news_section .detail-box {
+    padding: 25px;
+}
+
+.news_section .detail-box h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.news_section .detail-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #ff6f00;
+    margin-bottom: 18px;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+        .testimonial-item {
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.15);
+        }
+
+        .testimonial-item p {
+            color: #555;
+        }
+
+        .section-title {
+           font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #000000;
+        }
+
+        /* ===== VIDEO SECTION ===== */
+        .video {
+            background: url("./assets/thumbnail.jfif") center/cover;
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-play {
+            width: 80px;
+            height: 80px;
+            background: #fea116;
+            border-radius: 50%;
+            border: none;
+            position: relative;
+        }
+
+        .btn-play span {
+            position: absolute;
+            left: 32px;
+            top: 26px;
+            border-style: solid;
+            border-width: 14px 0 14px 24px;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        /* ===== RESERVATION SECTION ===== */
+        .reservation-box {
+            background: #0f172b;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+        }
+
+        .section-title {
+           font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #000000;
+        }
+
+        .info-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-control {
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background: #fea116;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #e08e0b;
+        }
+
+.heading_container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #064273; 
+  margin-bottom: 10px;
+}
+
+.heading_container p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.vip-footer {
+    background: linear-gradient(180deg, #0f172b, #020617);
+}
+
+.footer-title {
+    color: #fea116;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #fea116;
+    padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #fea116;
+    color: #000;
+}
+
+.vip-input {
+    border-radius: 50px;
+    padding: 12px 20px;
+    padding-right: 110px;
+}
+
+.vip-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.footer-menu a {
+    color: #ccc;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #fea116;
+}
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+        }
+
+
+</style>
+
+</head>
+
+<body>
+
+
+    <!-- header section strats -->
+     <div id="preloader">
+  <div class="loader"></div>
+</div>
+
+  <section class="header-area">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/Microsoft_Azure_Logo.svg.png" alt="Delicious" height="40">
+    </a>
+
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="booking.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary ms-3">Book Table</a>
+    </div>
+
+  </div>
+</nav>
+</section>
+
+
+    <!-- end header section -->
+
+    <!-- slider section -->
+   <section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Azure <strong> Plate</strong><br>
+        </h1>
+        <p>Where flavor meets the sea</p>
+        <a href="menu.html" class="btn btn-primary">VIEW MENU</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  <!-- end slider section -->
+
+  <!-- about section -->
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="col-md-11 col-lg-10 mx-auto">
+        <div class="heading_container heading_center">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <div class="box">
+          <div class="col-md-7 mx-auto">
+            <div class="img-box">
+              <img src="assets/about-img.jpg" class="box-img" alt="">
+            </div>
+          </div>
+          <div class="detail-box">
+            <p>
+              Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+  <section class="menu-header">
+  <div class="container">
+    <h1>Our Delicious Menu</h1>
+    <p>Starters • Main Course • Desserts • Drinks</p>
+  </div>
+</section>
+
+<!-- ================= STARTERS ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Starters</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fried-fish-with-potato-mash.jpg">
+        <div class="card-body">
+          <h5>Fish Fry</h5>
+          <p>Grilled-Fish with spices, lemon, flour, oil.</p>
+          <strong>770 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fish tikka.jpg">
+        <div class="card-body">
+          <h5>Fish Tikka</h5>
+          <p>Fish with yogurt, spices, lemon.</p>
+          <strong>924 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/fish finger.jpg">
+        <div class="card-body">
+          <h5>Fish Finger</h5>
+          <p>Fish with breadcrumbs, egg, spices.</p>
+          <strong>1,387 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/prawn fry.jpg">
+        <div class="card-body">
+          <h5>Prawn Fry</h5>
+          <p>Prawns with spices, oil, garlic.</p>
+          <strong>2,004 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Crab Lollipop.jpg">
+        <div class="card-body">
+          <h5>Crab Lollipop</h5>
+          <p>Crab with spices, flour, oil.</p>
+          <strong>2,774 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Squid  Calamari Fry.jpg">
+        <div class="card-body">
+          <h5>Squid/Calamari Fry</h5>
+          <p>Squid, flour, spices, oil.</p>
+          <strong>3,699 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MAIN COURSE ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Main Course</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Fish Biryani.jpg">
+        <div class="card-body">
+          <h5>Fish Biryani</h5>
+          <p>Fish with rice, spices</p>
+          <strong>1,233 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Tom Yum  Thai Seafood Soup.jpg">
+        <div class="card-body">
+          <h5>Tom Yum/Thai Seafood Soup</h5>
+          <p>Seafood, lemongrass, chili</p>
+          <strong>2,466 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Grilled Squid.jpg">
+        <div class="card-body">
+          <h5>Black Bean Squid</h5>
+          <p>Squid, black bean, chili</p>
+          <strong>4,624 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DESSERTS ================= -->
+  <section class="container my-5">
+  <h2 class="category-title">Desserts</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/ICE.jfif">
+        <div class="card-body">
+          <h5>Chocolate Brownie</h5>
+          <p>Warm brownie with ice cream</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/delicious-ice-cream-studio.jpg">
+        <div class="card-body">
+          <h5>Vanilla / Chocolate Ice Cream</h5>
+          <p>Milk, sugar, flavor</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Chocolate Mousse  Pudding.jpg">
+        <div class="card-body">
+          <h5>Chocolate Pudding</h5>
+          <p>Chocolate, cream, sugar</p>
+          <strong>1,079 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DRINKS ================= -->
+<section class="container my-5">
+  <h2 class="category-title">Drinks</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/COLD.jfif">
+        <div class="card-body">
+          <h5>Cold Coffee</h5>
+          <p>Chilled creamy coffee</p>
+          <strong>369 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/Mango Juice.jpg">
+        <div class="card-body">
+          <h5>Mango Juice</h5>
+          <p>Mango, sugar, water</p>
+          <strong>616 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/download.jfif">
+        <div class="card-body">
+          <h5>Lemon mint cooler</h5>
+          <p>Lemon, mint, soda</p>
+          <strong>678 PK</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/cold drinks">
+        <div class="card-body">
+          <h5>Coke / Sprite / Fanta</h5>
+          <p>Carbonated water, sugar, flavor</p>
+          <strong>308 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card menu-card">
+        <img src="assets/tea.jfif">
+        <div class="card-body">
+          <h5>Hot Tea</h5>
+          <p>Tea, water, milk</p>
+          <strong>462 PKR</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- news section -->
+  <section class="news_section">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Latest News
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="assets/seafood-plate-with-shrimps-mussels-lobsters-served-with-lemon_140725-8798.avif" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Tasty Food For you
+              </h4>
+              <p>
+                there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="assets/fresh-seafood-with-spices-lime-slices_220925-39772.avif" class="box-img" alt="">
+            </div>
+            <div class="detail-box">
+              <h4>
+                Breakfast For you
+              </h4>
+              <p>
+                there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end news section -->
+
+  <!-- Testimonial -->
+   <section>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h5 class="section-title">Testimonials</h5>
+        <h1>Happy Customers</h1>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="testimonial-item p-4 rounded">
+                <i class="fa fa-quote-left text-warning fa-2x mb-3"></i>
+                <p>Amazing food and excellent service.</p>
+                <div class="d-flex align-items-center">
+                    <img src="assets/PIC.jfif" class="rounded-circle">
+                    <div class="ms-3">
+                        <h6 class="mb-0">Ali Khan</h6>
+                        <small>Customer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="testimonial-item p-4 rounded">
+                <i class="fa fa-quote-left text-warning fa-2x mb-3"></i>
+                <p>Best restaurant experience ever.</p>
+                <div class="d-flex align-items-center">
+                    <img src="assets/PIC2.jfif" class="rounded-circle">
+                    <div class="ms-3">
+                        <h6 class="mb-0">Sara Ahmed</h6>
+                        <small>Blogger</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="testimonial-item p-4 rounded">
+                <i class="fa fa-quote-left text-warning fa-2x mb-3"></i>
+                <p>Food quality is top notch.</p>
+                <div class="d-flex align-items-center">
+                    <img src="assets/PIC3.jfif" class="rounded-circle">
+                    <div class="ms-3">
+                        <h6 class="mb-0">John Doe</h6>
+                        <small>Chef</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="testimonial-item p-4 rounded">
+                <i class="fa fa-quote-left text-warning fa-2x mb-3"></i>
+                <p>Highly recommended restaurant.</p>
+                <div class="d-flex align-items-center">
+                    <img src="assets/PIC4.jfif" class="rounded-circle">
+                    <div class="ms-3">
+                        <h6 class="mb-0">Emma</h6>
+                        <small>Designer</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<!-- Reservation -->
+ <section>
+<div class="container-fluid py-5">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <div class="video">
+                <button class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal">
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-6 reservation-box d-flex align-items-center">
+            <div class="p-5 w-100">
+                <h5 class="section-title text-start">Reservation</h5>
+                <h1 class="text-white mb-4">Book A Table Online</h1>
+
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="datetime-local" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-select">
+                                <option>1 Person</option>
+                                <option>2 People</option>
+                                <option>3 People</option>
+                                <option>4+ People</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control" rows="3" placeholder="Special Request"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3">Book Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/DWRcNpR6Kdc" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Contact Section -->
+ <section>
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h5 class="section-title">Contact Us</h5>
+        <h1>Get In Touch</h1>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-envelope fa-2x text-warning mb-3"></i>
+                <h5>Booking</h5>
+                <p>book@example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-info-circle fa-2x text-warning mb-3"></i>
+                <h5>General</h5>
+                <p>info@example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-tools fa-2x text-warning mb-3"></i>
+                <h5>Technical</h5>
+                <p>tech@example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <iframe class="rounded w-100" style="height:350px;border:0"
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115882.06717018457!2d66.82331085205078!3d24.818912772125913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3166aab228155%3A0x438409260e805326!2sRashid%20Seafood!5e0!3m2!1sen!2s!4v1768501871717!5m2!1sen!2s"></iframe>
+        </div>
+
+        <div class="col-md-6">
+            <form class="bg-white p-4 rounded shadow">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3">Send Message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+  <!-- VIP Footer Start -->
+   <section>
+<div class="container-fluid vip-footer text-light pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <!-- Company -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Company</h4>
+                <a class="footer-link" href="#">About Us</a>
+                <a class="footer-link" href="#">Contact Us</a>
+                <a class="footer-link" href="#">Reservation</a>
+                <a class="footer-link" href="#">Privacy Policy</a>
+                <a class="footer-link" href="#">Terms & Conditions</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Contact</h4>
+                <p><i class="fa fa-map-marker-alt me-2 text-warning"></i>123 Street, New York</p>
+                <p><i class="fa fa-phone-alt me-2 text-warning"></i>+012 345 67890</p>
+                <p><i class="fa fa-envelope me-2 text-warning"></i>info@example.com</p>
+
+                <div class="d-flex gap-2 mt-3">
+                    <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Opening -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Opening</h4>
+                <p class="mb-1 fw-semibold">Monday - Saturday</p>
+                <p>09:00 AM - 09:00 PM</p>
+                <p class="mb-1 fw-semibold">Sunday</p>
+                <p>10:00 AM - 08:00 PM</p>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Subscribe for latest offers & updates</p>
+                <div class="position-relative">
+                    <input class="form-control vip-input" type="email" placeholder="Your email">
+                    <button class="btn btn-warning vip-btn">Sign Up</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container border-top border-secondary pt-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                © 2026 <span class="text-warning">Azure Plate</span>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end footer-menu">
+                <a href="#">Home</a>
+                <a href="#">Cookies</a>
+                <a href="#">Help</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- VIP Footer End -->
+
+
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+
+</body>
+
+          </html>
