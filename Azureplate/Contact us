@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Azure Plate</title>
+
+<!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+            background-image: url(assets/body-bg.jpg);
+        }
+
+          #preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  animation: hidePreloader 0.8s ease forwards;
+  animation-delay: 1.5s; 
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #ff6f00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes hidePreloader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ===== HEADER AREA ===== */
+      .header-area {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.header-area .navbar {
+    padding: 15px 30px;
+  color: #ff6f00;
+}
+
+.header-area .navbar-brand img {
+    max-height: 50px; 
+}
+
+.header-area .nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 18px;
+    transition: 0.3s;
+}
+
+.header-area .nav-link:hover,
+.header-area .nav-link.active {
+    color: #ff6f00;
+}
+
+.header-area .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff6f00;
+    transition: 0.3s;
+    margin: auto;
+}
+
+.header-area .nav-link:hover::after,
+.header-area .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ===== RESPONSIVE AREA ===== */
+/* ===== MOBILE MENU ===== */
+@media (max-width: 480px) {
+    .header-area .nav-link {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+    .header-area .navbar-brand img {
+        max-height: 40px;
+    }
+
+    .hero-header {
+        padding: 60px 15px;
+        background-size: cover;
+    }
+
+    .info-box {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .form-control, .vip-input {
+        width: 100%;
+        padding-right: 20px;
+    }
+    .vip-btn {
+        position: relative;
+        top: 10px;
+        right: 10px;
+        padding: 6px 15px;
+    }
+    .btn-primary {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .footer-title {
+        font-size: 16px;
+    }
+    .footer-link {
+        font-size: 14px;
+    }
+    .social-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* ===== SMALL MENU ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hero-header {
+        padding: 80px 20px;
+    }
+    .info-box {
+        padding: 20px;
+    }
+    .btn-primary {
+        font-size: 1rem;
+    }
+}
+
+/* ===== MEDIUM MENU ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-area .navbar-collapse {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .header-area .nav-link {
+        text-align: center;
+        padding: 12px 0;
+    }
+    .hero-header {
+        padding: 100px 30px;
+    }
+    .info-box {
+        padding: 25px;
+    }
+}
+
+/* ===== LARGE MENU ===== */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .hero-header {
+        padding: 120px 50px;
+    }
+    .info-box {
+        padding: 30px;
+    }
+}
+
+/* ===== EXTRA LARGE MENU ===== */
+@media (min-width: 1201px) {
+    .hero-header {
+        padding: 150px 100px;
+    }
+    .info-box {
+        padding: 35px;
+    }
+}
+
+        /* ===== HERO SECTION ===== */
+        .hero-header {
+            background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+            url("./assets/banner.png") center/cover;
+        }
+
+        .section-title {
+            color: #fea116;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.08);
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-control {
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background: #fea116;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #e08e0b;
+        }
+
+        .vip-footer {
+    background: linear-gradient(180deg, #0f172b, #020617);
+}
+
+.footer-title {
+    color: #fea116;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-link {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #fea116;
+    padding-left: 5px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #fea116;
+    color: #000;
+}
+
+.btn-primary {
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  color: #000;
+  background-color: #FFE537;
+}
+
+.btn-primary:hover {
+  color: #000;
+   background: none;
+     border: 2px solid #FFE537;
+}
+
+.vip-input {
+    border-radius: 50px;
+    padding: 12px 20px;
+    padding-right: 110px;
+}
+
+.vip-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+.footer-menu a {
+    color: #ccc;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #fea116;
+}
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+ <!-- header section strats -->
+    <div id="preloader">
+  <div class="loader"></div>
+</div>
+
+    <section class="header-area">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/Microsoft_Azure_Logo.svg.png" alt="Delicious" height="40">
+    </a>
+
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="booking.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+
+      </ul>
+
+      <a href="booking.html" class="btn btn-primary ms-3">Book Table</a>
+    </div>
+
+  </div>
+</nav>
+</section>
+
+    <!-- end header section -->
+<!-- Hero -->
+<div class="container-fluid hero-header py-5 mb-5">
+    <div class="container text-center py-5">
+        <h1 class="display-4 text-white fw-bold">Contact Us</h1>
+        <p class="text-light">We are always ready to help you</p>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h5 class="section-title">Contact Us</h5>
+        <h1>Get In Touch</h1>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-envelope fa-2x text-warning mb-3"></i>
+                <h5>Booking</h5>
+                <p>book@example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-info-circle fa-2x text-warning mb-3"></i>
+                <h5>General</h5>
+                <p>info@example.com</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-box text-center">
+                <i class="fa fa-tools fa-2x text-warning mb-3"></i>
+                <h5>Technical</h5>
+                <p>tech@example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <iframe class="rounded w-100" style="height:350px;border:0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115882.06717018457!2d66.82331085205078!3d24.818912772125913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3166aab228155%3A0x438409260e805326!2sRashid%20Seafood!5e0!3m2!1sen!2s!4v1768501871717!5m2!1sen!2s"></iframe>
+        </div>
+
+        <div class="col-md-6">
+            <form class="bg-white p-4 rounded shadow">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-3">Send Message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- VIP Footer Start -->
+<div class="container-fluid vip-footer text-light pt-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-5">
+
+            <!-- Company -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Company</h4>
+                <a class="footer-link" href="#">About Us</a>
+                <a class="footer-link" href="#">Contact Us</a>
+                <a class="footer-link" href="#">Reservation</a>
+                <a class="footer-link" href="#">Privacy Policy</a>
+                <a class="footer-link" href="#">Terms & Conditions</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Contact</h4>
+                <p><i class="fa fa-map-marker-alt me-2 text-warning"></i>123 Street, New York</p>
+                <p><i class="fa fa-phone-alt me-2 text-warning"></i>+012 345 67890</p>
+                <p><i class="fa fa-envelope me-2 text-warning"></i>info@example.com</p>
+
+                <div class="d-flex gap-2 mt-3">
+                    <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Opening -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Opening</h4>
+                <p class="mb-1 fw-semibold">Monday - Saturday</p>
+                <p>09:00 AM - 09:00 PM</p>
+                <p class="mb-1 fw-semibold">Sunday</p>
+                <p>10:00 AM - 08:00 PM</p>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-lg-3 col-md-6">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Subscribe for latest offers & updates</p>
+                <div class="position-relative">
+                    <input class="form-control vip-input" type="email" placeholder="Your email">
+                    <button class="btn btn-warning vip-btn">Sign Up</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container border-top border-secondary pt-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                © 2026 <span class="text-warning">Azure</span>. All Rights Reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end footer-menu">
+                <a href="#">Home</a>
+                <a href="#">Cookies</a>
+                <a href="#">Help</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- VIP Footer End -->
+<!-- Back to top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+<!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
