@@ -17,6 +17,8 @@
 
 <!-- Bootstrap JS + Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <style>
         body {
@@ -246,6 +248,7 @@ scroll-behavior: smooth;
         .testimonial-item {
             background: #fff;
             transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,.15);
         }
 
         .testimonial-item:hover {
